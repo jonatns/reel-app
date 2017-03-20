@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-xs-3">
+    <h4 class="title">Users</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel">
+      <div class="panel-body card">
+        <table class="table users-table">
+          <tbody>
+            {{#each model.team.users as |user|}}
+              <tr valign="middle">
+                <td>
+                  <div class="media">
+                    <a href="#" class="pull-left">
+                      <img src="{{user.image}}" class="md-img">
+                    </a>
+                    <div class="media-body">
+                      <span class="media-meta pull-right">
+                              {{#if user.isConnected}}
+                                {{ui-icon 'circle' size='12' color='#27ae60'}}
+                                Connected
+                              {{else}}
+                                {{ui-icon 'circle' size='12' color='#c0392b'}}
+                                Not connected
+                              {{/if}}
+                            </span>
+                      <h5>{{user.firstname}} {{user.lastname}}</h5>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            {{/each}}
+            <tr valign="middle" style="height: 0px;">
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

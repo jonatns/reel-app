@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-xs-3">
+    <h4 class="title">Me</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6">
+    <div class="panel">
+      <div class="panel-body card">
+        <div class="row">
+          <div class="col-xs-12">
+            <h4 class="title">Project</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <img class="settings-img" src={{dataService.currentUser.image}}>
+            <h3 class="settings-user">{{dataService.currentUser.firstname}} {{dataService.currentUser.lastname}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <div class="panel">
+      <div class="panel-body card">
+        <div class="row">
+          <div class="col-xs-12">
+            <h4 class="title">Team</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <img class="settings-img" src= {{model.team.image}}>
+            <h3 class="settings-user">{{model.team.name}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel">
+      <div class="panel-body card">
+        <div class="row">
+          <div class="col-xs-12">
+            <h4 class="title">Log</h4>
+          </div>
+        </div>
+        <table class="table users-table">
+          <tbody>
+            {{#each dataService.currentUser.logs as |log|}}
+              <tr>
+                <td>
+                  You {{log.description}} at {{moment-format log.dateTime 'MMMM Do YYYY, h:mm:ss a'}}
+                </td>
+              </tr>
+            {{/each}}
+            <tr valign="middle" style="height: 0px;">
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

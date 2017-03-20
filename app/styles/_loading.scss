@@ -1,0 +1,34 @@
+.loader-wrapper {
+  height: 100vh;
+  width: 100vw;
+}
+
+.app-loader {
+  margin-top: 200px;
+  margin-left: 405px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  animation: spin 1s linear infinite;
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  animation: spin 1s linear infinite;
+  display: none;
+}
+
+.loading {
+  display: inline-block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

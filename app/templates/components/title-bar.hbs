@@ -1,0 +1,26 @@
+<div class="titlebar">
+  <div class="team-project-wrapper">
+    <img class="team-img" src="{{model.team.image}}">
+    <div class="titlebar-team-name">
+      {{model.team.name}}
+    </div>
+	  <div class="vr"></div>
+    <div class="titlebar-project-name">
+      {{model.group.name}}
+    </div>
+  </div>
+  <div class="connection-wrapper">
+    <div class="connection-status">
+      {{#if isOnline}}
+        {{ui-icon 'circle' size='12' color='#27ae60'}}
+        Connected
+      {{else}}
+        {{ui-icon 'circle' size='12' color='#c0392b'}}
+        Reconnecting...
+      {{/if}}
+    </div>
+  </div>
+  <div class="current-user-wrapper">
+    {{user-dropdown logout='logout'}}
+  </div>
+</div>

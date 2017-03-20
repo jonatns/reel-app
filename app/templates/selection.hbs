@@ -1,0 +1,54 @@
+<div class="selection-wrapper container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel full-height">
+        <div class="panel-body">
+          <div class="user-profile header-space">
+            <img class="welcome-user-img" src={{dataService.currentUser.image}}>
+            <h2 id="welcome-message">Hello, {{dataService.currentUser.firstname}} {{dataService.currentUser.lastname}}!</h2>
+            <button {{action 'logout'}} class="btn btn-primary btn-xs group-select logout-btn">Logout</button>
+          </div>
+          <br>
+          <div class="selection-select-wrapper container-fluid">
+            <div class="row">
+              <div class="col-xs-8">
+                <div class="row">
+                  <div class="col-xs-3 text-center">
+                    <img id="slack-logo" src="{{model.team.icon.image_132}}">
+                    <h4 class="team-name">{{model.team.name}}</h4>
+                  </div>
+                  <div class="col-xs-9 selection-select">
+                    {{ember-selectize
+                    class="group-select"
+                    content=non-mpim-groups
+                    optionValuePath="content.id"
+                    optionLabelPath="content.name"
+                    selection=selectedGroup
+                    placeholder="Select Slack Group" }}
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-4">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <input id="selectedProject" type="file" style="display: none;" webkitdirectory directory multiple onchange={{action 'setSelectedProject'}} disabled={{isSelected}}/>
+                    <label class="btn btn-primary btn-block group-select select-btn" for="selectedProject" disabled={{isSelected}}>Select Project</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row row-space">
+              <div id="play-btn" class="col-md-12 text-center">
+                {{ui-icon 'play' size='36pt' color='#27ae60' opacity='.7' onClick='startWatching'}}
+                <br>
+                {{#if projectName}}
+                  <h5 class="team-name">Selected project: {{projectName}}</h5>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

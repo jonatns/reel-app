@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-xs-3">
+    <h4 class="title">Settings</h4>
+  </div>
+</div>
+<div class="row commands-row">
+  <div class="col-xs-12">
+    <button id="selection-btn" {{action 'goToSelection'}} class="btn command-btn">
+                <i class="glyphicon glyphicon-repeat"></i>
+              </button>
+    {{#tooltip-on-element target='#selection-btn' class='tooltip' }}
+      Select team group and project
+    {{/tooltip-on-element}}
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6">
+    <div class="panel">
+      <div class="panel-body card">
+        <div class="row">
+          <div class="col-xs-12">
+            <h4 class="title">User</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <img class="settings-img" src={{dataService.currentUser.image}}>
+            <h3 class="settings-user">{{dataService.currentUser.firstname}} {{dataService.currentUser.lastname}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <div class="panel">
+      <div class="panel-body card">
+        <div class="row">
+          <div class="col-xs-12">
+            <h4 class="title">Team</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <img class="settings-img" src= {{model.team.image}}>
+            <h3 class="settings-user">{{model.team.name}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

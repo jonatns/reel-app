@@ -2,24 +2,27 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'ember-electron-test',
+    modulePrefix: 'reel-app',
     environment: environment,
-    rootURL: '/',
-    locationType: 'auto',
+    rootURL: null,
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
-      },
-      EXTEND_PROTOTYPES: {
-        // Prevent Ember Data from overriding Date.parse.
-        Date: false
       }
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    firebase: {
+      apiKey: "AIzaSyB_iCXQjOWC8BZtMbYO1LBgVlb1lC16TKg",
+      authDomain: "reel-app.firebaseapp.com",
+      databaseURL: "https://reel-app.firebaseio.com",
+      storageBucket: "reel-app.appspot.com",
+      messagingSenderId: "604040087927"
     }
   };
 
@@ -33,6 +36,7 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
+
     ENV.locationType = 'none';
 
     // keep test console output quieter
@@ -43,7 +47,6 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
   }
 
   return ENV;

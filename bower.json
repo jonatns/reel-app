@@ -1,5 +1,11 @@
 {
-  "name": "ember-electron-test",
+  "name": "reel-app",
   "dependencies": {
+    "bootstrap": "^3.3.7",
+    "fontawesome": "^4.6.3",
+    "selectize": "miguelcobain/selectize.js#master",
+    "urijs": "^1.18.9",
+    "socket.io-client": "^1.7.2",
+    "offline": "^0.7.18"
   }
 }

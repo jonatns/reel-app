@@ -1,0 +1,29 @@
+{{title-bar model=model logout='logout'}}
+<div class="sidebar">
+  <ul>
+    <li>
+      {{#link-to 'dashboard.me'}}
+        Me
+      {{/link-to}}
+      {{#link-to 'dashboard.users'}}
+        Users
+      {{/link-to}}
+      {{#link-to 'dashboard.settings'}}
+        Settings
+      {{/link-to}}
+    </li>
+  </ul>
+</div>
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel full-height">
+          <div class="panel-body">
+            {{outlet}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

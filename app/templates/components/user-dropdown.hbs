@@ -1,0 +1,24 @@
+<div class="current-user">
+  <img id="user-avatar" src={{dataService.currentUser.image}}>
+  <div class="current-user-name">
+    {{dataService.currentUser.firstname}} {{dataService.currentUser.lastname}}
+    {{#basic-dropdown as |dd|}}
+      {{#dd.trigger tagName='a' class="user-dropdown"}}{{ui-icon 'chevron-circle-down'}}{{/dd.trigger}}
+      {{#dd.content class="user-dropdown-content"}}
+        <div id="triangle-up"></div>
+        <ul>
+          {{#link-to 'dashboard.settings' tagName='li'}}
+            <a>
+              Settings
+            </a>
+          {{/link-to}}
+          <li>
+            <a {{action 'logout'}}>
+              Logout
+            </a>
+          </li>
+        </ul>
+      {{/dd.content}}
+    {{/basic-dropdown}}
+  </div>
+</div>
