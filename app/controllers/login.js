@@ -1,4 +1,6 @@
 import Ember from 'ember';
+import ENV from '../config/environment';
+
 import fetch from 'fetch';
 
 /* global require */
@@ -11,17 +13,10 @@ export default Ember.Controller.extend({
   dataService: Ember.inject.service(),
   init() {
     ipcRenderer.on('code-request', (event, code) => {
-      const options = this.get('options');
-      this.requestSlackToken(options, code);
+      const slackOptions = ENV.slack;
+      this.requestSlackToken(slackOptions, code);
       authWindow.destroy();
     });
-  },
-
-  options: {
-    accessUri: 'https://slack.com/api/oauth.access',
-    clientId: '143373541587.144219915428',
-    clientSecret: '27e616cc2a9d15633620326fae8de135',
-    scopes: ['users.profile:read', 'team:read', 'users:read']
   },
 
   actions: {

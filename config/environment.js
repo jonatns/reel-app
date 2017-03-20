@@ -8,21 +8,25 @@ module.exports = function(environment) {
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
+
       }
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+
+    },
+    slack: {
+      accessUri: 'https://slack.com/api/oauth.access',
+      clientId: '143373541587.144219915428',
+      clientSecret: '27e616cc2a9d15633620326fae8de135',
+      scopes: ['users.profile:read', 'team:read', 'users:read']
     },
     firebase: {
-      apiKey: "AIzaSyB_iCXQjOWC8BZtMbYO1LBgVlb1lC16TKg",
-      authDomain: "reel-app.firebaseapp.com",
-      databaseURL: "https://reel-app.firebaseio.com",
-      storageBucket: "reel-app.appspot.com",
-      messagingSenderId: "604040087927"
+      apiKey: 'AIzaSyB_iCXQjOWC8BZtMbYO1LBgVlb1lC16TKg',
+      authDomain: 'reel-app.firebaseapp.com',
+      databaseURL: 'https://reel-app.firebaseio.com',
+      storageBucket: 'reel-app.appspot.com',
+      messagingSenderId: '604040087927'
     }
   };
 
