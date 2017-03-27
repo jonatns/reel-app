@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import Ember from 'ember';
 import config from './config/environment';
 
@@ -10,7 +12,9 @@ Router.map(function() {
   this.route('dashboard', function() {
     this.route('settings');
     this.route('profile');
-    this.route('users');
+    this.route('users', function() {
+      this.route('user', { path: '/:user_id' });
+    });
     this.route('loading');
     this.route('me');
   });

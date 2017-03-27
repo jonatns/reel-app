@@ -1,7 +1,7 @@
 <div class="current-user">
-  <img id="user-avatar" src={{dataService.currentUser.image}}>
+  <img id="user-avatar" src={{dataService.user.image}}>
   <div class="current-user-name">
-    {{dataService.currentUser.firstname}} {{dataService.currentUser.lastname}}
+    {{dataService.user.firstname}} {{dataService.user.lastname}}
     {{#basic-dropdown as |dd|}}
       {{#dd.trigger tagName='a' class="user-dropdown"}}{{ui-icon 'chevron-circle-down'}}{{/dd.trigger}}
       {{#dd.content class="user-dropdown-content"}}

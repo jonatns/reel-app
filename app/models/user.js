@@ -8,7 +8,6 @@ export default DS.Model.extend({
   isOwner: DS.attr('boolean'),
   image: DS.attr('string'),
   isConnected: DS.attr('boolean'),
-  team: DS.belongsTo('team', { async: true, inverse: null }),
-  group: DS.belongsTo('group', { async: true, inverse: null }),
+  groups: DS.hasMany('group', { async: true }),
   logs: DS.hasMany('log', { async: true, inverse: null })
 });

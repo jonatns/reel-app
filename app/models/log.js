@@ -5,6 +5,6 @@ export default DS.Model.extend({
   dateTime: DS.attr('date', {
     defaultValue() { return new Date(); }
   }),
-  user: DS.belongsTo('user', { async: true, inverse: null }),
-  project: DS.belongsTo('project', { async: true, inverse: null })
+  group: DS.belongsTo('group', { async: true, inverse: null }),
+  user: DS.belongsTo('user', { async: true, inverse: null })
 });

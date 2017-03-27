@@ -104,13 +104,22 @@ a:hover {
 }
 
 
-.users-table tr {
+.reel-table tr {
   height: 60px;
 }
 
-.users-table tr td {
+.reel-table tr td:hover {
+  opacity: .9;
+  background-color: #212121;
+}
+
+.reel-table tr td {
   vertical-align: middle !important;
   color: #bdc3c7;
+}
+
+.reel-table tr:last-child td {
+  border-bottom: 1px solid #ddd;
 }
 
 .tooltip {

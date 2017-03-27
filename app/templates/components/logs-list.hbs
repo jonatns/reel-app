@@ -1,0 +1,11 @@
+<table class="table reel-table">
+  <tbody>
+    {{#each userLogsByGroup as |log|}}
+      <tr>
+        <td>
+          {{log.description}} at {{moment-format log.dateTime 'MMMM Do YYYY, h:mm:ss a'}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -50,6 +50,7 @@ export default Ember.Controller.extend({
       });
     }
   },
+
   requestSlackToken(options, code) {
     const uri = `${options.accessUri}?
       client_id=${options.clientId}&
@@ -60,8 +61,8 @@ export default Ember.Controller.extend({
         if (typeof data.access_token === 'undefined') {
           console.log('Error trying to login');
         } else {
-          localStorage.setItem('token', data.access_token);
           Ember.$('.status').addClass('visible');
+          localStorage.setItem('token', data.access_token);
           this.setupUserAndTeamData(data);
         }
       });
@@ -72,7 +73,8 @@ export default Ember.Controller.extend({
 
   setupUserAndTeamData(data) {
     const _this = this;
-    this.get('dataService').setupUserAndTeamData(data).then(() => {
+    const dataService = this.get('dataService');
+    dataService.setupUserAndTeamData(data).then(() => {
       _this.redirect('selection');
     }).catch((err) => {
       console.log(err);
