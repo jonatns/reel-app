@@ -22,6 +22,21 @@ h1, h2, h3, h4 {
   color: #CFCFCF;
 }
 
+.dash-circle {
+  margin-top: 20px;
+  display: inline-block;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: #141414;
+}
+
+.dash-circle-number {
+  line-height: 100px;
+  font-size: 46px;
+  color: #00BCD4;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -578,4 +593,8 @@ a:hover {
 
 .connection-status {
   display: inline-block;
+}
+
+.conn-status {
+  line-height: 2.7;
 }

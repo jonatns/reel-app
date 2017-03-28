@@ -4,19 +4,19 @@
       {{#link-to 'dashboard.users.user' user tagName="tr" valign="middle"}}
           <td>
             <div class="media">
-              <span href="#" class="pull-left">
+              <span class="pull-left">
                 <img src="{{user.image}}" class="md-img">
               </span>
               <div class="media-body">
-                <span class="media-meta pull-right">
-                        {{#if user.isConnected}}
-                          {{ui-icon 'circle' size='12' color='#27ae60'}}
-                          Connected
-                        {{else}}
-                          {{ui-icon 'circle' size='12' color='#c0392b'}}
-                          Not connected
-                        {{/if}}
-                      </span>
+                <span class="pull-right conn-status">
+                  {{#if user.isConnected}}
+                    {{ui-icon 'circle' size='12' color='#27ae60'}}
+                    Connected
+                  {{else}}
+                    {{ui-icon 'circle' size='12' color='#c0392b'}}
+                    Not connected
+                  {{/if}}
+                </span>
                 <h5>{{user.firstname}} {{user.lastname}}</h5>
               </div>
             </div>

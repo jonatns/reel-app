@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const { $ } = Ember;
+
 export default Ember.Component.extend({
   dataService: Ember.inject.service(),
   watcher: Ember.inject.service(),
@@ -8,11 +10,11 @@ export default Ember.Component.extend({
     this._super(...arguments);
     const _this = this;
     const dataService = this.get('dataService');
-    window.addEventListener('online', function() {
+    $(window).on('online', function() {
       dataService.setConnected();
       _this.set('isOnline', true);
     });
-    window.addEventListener('offline', function() {
+    $(window).on('offline', function() {
       dataService.setDisconnected();
       _this.set('isOnline', false);
     });

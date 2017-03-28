@@ -9,5 +9,5 @@ export default DS.Model.extend({
   image: DS.attr('string'),
   isConnected: DS.attr('boolean'),
   groups: DS.hasMany('group', { async: true }),
-  logs: DS.hasMany('log', { async: true, inverse: null })
+  logs: DS.hasMany('log', { async: true })
 });

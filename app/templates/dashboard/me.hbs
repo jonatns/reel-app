@@ -8,13 +8,8 @@
     <div class="panel">
       <div class="panel-body card">
         <div class="row">
-          <div class="col-xs-12">
-            <h4 class="title">Project</h4>
-          </div>
-        </div>
-        <div class="row">
           <div class="col-xs-12 text-center">
-            <img class="settings-img" src={{dataService.user.image}}>
+            <img class="settings-img" src= {{dataService.user.image}}>
             <h3 class="settings-user">{{dataService.user.firstname}} {{dataService.user.lastname}}</h3>
           </div>
         </div>
@@ -25,14 +20,13 @@
     <div class="panel">
       <div class="panel-body card">
         <div class="row">
-          <div class="col-xs-12">
-            <h4 class="title">Team</h4>
-          </div>
-        </div>
-        <div class="row">
           <div class="col-xs-12 text-center">
-            <img class="settings-img" src= {{dataService.team.image}}>
-            <h3 class="settings-user">{{dataService.team.name}}</h3>
+            <div class="dash-circle">
+              <span class="dash-circle-number">
+                {{hours-worked logs}}
+              </span>
+            </div>
+            <h3 class="settings-user">Hours Worked</h3>
           </div>
         </div>
       </div>
