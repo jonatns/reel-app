@@ -16,35 +16,16 @@
     <div class="panel">
       <div class="panel-body card">
         <div class="row">
-          <div class="col-xs-12">
-            <h4 class="title">User</h4>
-          </div>
-        </div>
-        <div class="row">
           <div class="col-xs-12 text-center">
-            <img class="settings-img" src={{model.image}}>
-            <h3 class="settings-user">{{model.firstname}} {{model.lastname}}</h3>
+            <img class="settings-img" src={{user.image}}>
+            <h3 class="settings-user">{{user.firstname}} {{user.lastname}}</h3>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="col-xs-6">
-    <div class="panel">
-      <div class="panel-body card">
-        <div class="row">
-          <div class="col-xs-12">
-            <h4 class="title">Team</h4>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12 text-center">
-            <img class="settings-img" src= {{dataService.team.image}}>
-            <h3 class="settings-user">{{dataService.team.name}}</h3>
-          </div>
-        </div>
-      </div>
-    </div>
+    {{user-hours user=user}}
   </div>
 </div>
 <div class="row">
@@ -56,7 +37,7 @@
             <h4 class="title">Log</h4>
           </div>
         </div>
-        {{logs-list user=model}}
+        {{logs-list user=user}}
       </div>
     </div>
   </div>

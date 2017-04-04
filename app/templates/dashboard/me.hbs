@@ -17,20 +17,7 @@
     </div>
   </div>
   <div class="col-xs-6">
-    <div class="panel">
-      <div class="panel-body card">
-        <div class="row">
-          <div class="col-xs-12 text-center">
-            <div class="dash-circle">
-              <span class="dash-circle-number">
-                {{hours-worked logs}}
-              </span>
-            </div>
-            <h3 class="settings-user">Hours Worked</h3>
-          </div>
-        </div>
-      </div>
-    </div>
+    {{user-hours user=dataService.user}}
   </div>
 </div>
 <div class="row">
