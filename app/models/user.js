@@ -7,7 +7,7 @@ export default DS.Model.extend({
   isAdmin: DS.attr('boolean'),
   isOwner: DS.attr('boolean'),
   image: DS.attr('string'),
-  isConnected: DS.attr('boolean'),
   groups: DS.hasMany('group', { async: true }),
-  logs: DS.hasMany('log', { async: true })
+  logs: DS.hasMany('log', { async: true }),
+  statuses: DS.hasMany('status', { async: true })
 });

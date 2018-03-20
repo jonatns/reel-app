@@ -4,10 +4,12 @@ import fetch from 'fetch';
 export default Ember.Service.extend({
   store: Ember.inject.service('store'),
   ajax: Ember.inject.service(),
+  repo: Ember.inject.service(),
   user: null,
   group: null,
   project: null,
   team: null,
+  status: null,
   init() {
     this._super(...arguments);
     const projectString = localStorage.getItem('project');
@@ -80,6 +82,43 @@ export default Ember.Service.extend({
       }
     });
   },
+  loadUserStatus() {
+    return new Ember.RSVP.Promise((resolve) => {
+      const group = this.get('group');
+
+      this.get('store').query('status', {
+        orderBy: 'user',
+        equalTo: this.get('user.id')
+      }).then((resp) => {
+        const content = resp.get('content');
+        if (content.length === 0) {
+          const status = this.get('store').createRecord('status', {
+            group: group,
+            user: this.get('user'),
+            isConnected: false,
+            currentBranch: 'No remote branch'
+          });
+          this.get('user.statuses').pushObject(status);
+          status.save().then(() => {
+            this.get('user').save().then(() => {
+              group.get('statuses').pushObject(status);
+              group.save().then(() => {
+                this.set('status', status);
+                this.get('repo').setup();
+              });
+            });
+          });
+        } else {
+          const status = content[0];
+          this.get('store').findRecord('status', status.id).then((status) => {
+            this.set('status', status);
+            this.get('repo').setup();
+            resolve();
+          });
+        }
+      });
+    });
+  },
   setTeam() {
     const teamId = localStorage.getItem('teamId');
     this.get('store').findRecord('team', teamId).then((team) => {
@@ -95,17 +134,17 @@ export default Ember.Service.extend({
     }
   },
   setConnected() {
-    const userId = localStorage.getItem('userId');
-    this.get('store').findRecord('user', userId).then((user) => {
-      user.set('isConnected', true);
-      user.save();
+    const statusId = this.get('status.id');
+    this.get('store').findRecord('status', statusId).then((status) => {
+      status.set('isConnected', true);
+      status.save();
     });
   },
   setDisconnected() {
-    const userId = localStorage.getItem('userId');
-    this.get('store').findRecord('user', userId).then((user) => {
-      user.set('isConnected', false);
-      user.save();
+    const statusId = this.get('status.id');
+    this.get('store').findRecord('status', statusId).then((status) => {
+      status.set('isConnected', false);
+      status.save();
     });
   },
   addLog(description) {
@@ -215,8 +254,7 @@ export default Ember.Service.extend({
             lastname: userProfile.last_name,
             isAdmin: userData.is_admin,
             isOwner: userData.is_owner,
-            image: userProfile.image_192,
-            isConnected: false
+            image: userProfile.image_192
           });
           newUser.save().then(() => {
             resolve();
@@ -231,7 +269,6 @@ export default Ember.Service.extend({
             user.set('isAdmin', userData.is_admin);
             user.set('isOwner', userData.is_owner);
             user.set('image', userProfile.image_192);
-            user.set('isConnected', false);
             user.save().then(() => {
               resolve();
             }).catch((err) => {
@@ -331,6 +368,8 @@ export default Ember.Service.extend({
       method: 'POST'
     }).then(() => {
       localStorage.clear();
+      this.set('user', null);
+      this.set('status', null);
     });
   }
 });

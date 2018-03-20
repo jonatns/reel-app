@@ -20,6 +20,12 @@
       {{/if}}
     </div>
   </div>
+  <div class="current-branch-wrapper">
+    <div class="current-branch">
+      {{ui-icon 'github'}}
+      {{dataService.status.currentBranch}}
+    </div>
+  </div>
   <div class="current-user-wrapper">
     {{user-dropdown logout='logout'}}
   </div>

@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   dataService: Ember.inject.service(),
   watcher: Ember.inject.service(),
   isOnline: true,
+  branch: null,
   didInsertElement() {
     this._super(...arguments);
     const _this = this;

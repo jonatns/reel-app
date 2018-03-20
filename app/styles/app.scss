@@ -589,9 +589,23 @@ a:hover {
   font-weight: 200 !important;
   color: #bdc3c7;
   height: 32px;
+  margin-left: 100px;
 }
 
 .connection-status {
+  display: inline-block;
+}
+
+.current-branch-wrapper {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 200 !important;
+  color: #bdc3c7;
+  height: 32px;
+  margin-left: 100px;
+}
+
+.current-branch {
   display: inline-block;
 }
 
